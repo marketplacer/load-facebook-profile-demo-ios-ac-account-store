@@ -45,19 +45,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H2r-To-q0D">
+                                <rect key="frame" x="16" y="204" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rNc-54-eF9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0az-g3-c9g"/>
                             <constraint firstItem="rNc-54-eF9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="9TT-eQ-l5O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="H2r-To-q0D" secondAttribute="trailing" id="JYc-mE-tKp"/>
+                            <constraint firstItem="H2r-To-q0D" firstAttribute="top" secondItem="KER-4I-LGp" secondAttribute="bottom" constant="20.5" id="K25-BB-e7e"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rNc-54-eF9" secondAttribute="trailing" id="NPR-jX-89f"/>
                             <constraint firstAttribute="centerX" secondItem="cAu-Y4-foJ" secondAttribute="centerX" id="glA-fS-pPp"/>
                             <constraint firstItem="KER-4I-LGp" firstAttribute="top" secondItem="cAu-Y4-foJ" secondAttribute="bottom" constant="20" id="iRa-PY-Clo"/>
                             <constraint firstItem="cAu-Y4-foJ" firstAttribute="top" secondItem="rNc-54-eF9" secondAttribute="bottom" constant="24" id="neM-iP-89m"/>
+                            <constraint firstItem="H2r-To-q0D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="tdi-ss-vfF"/>
                             <constraint firstAttribute="centerX" secondItem="KER-4I-LGp" secondAttribute="centerX" id="toc-Oj-YgA"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="accessTokenField" destination="H2r-To-q0D" id="9vW-HT-evS"/>
                         <outlet property="appIdTextField" destination="rNc-54-eF9" id="Mj8-X8-jA4"/>
                         <outlet property="statusLabel" destination="KER-4I-LGp" id="77r-eG-sRM"/>
                     </connections>

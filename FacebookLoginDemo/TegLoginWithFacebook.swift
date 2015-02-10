@@ -45,11 +45,16 @@ class TegLoginWithFacebook {
     return nil
   }
 
+  // The auth token can be used to verify User ID on server side
+  // by sending this access token to facebook from server side
+  // https://graph.facebook.com/me?fields=id&access_token=YOUR_ACCCESS_TOKEN
   class func accessToken(accountStore: ACAccountStore) -> String? {
     if let currentSocialAccount = socialAccount(accountStore) {
       let credential = currentSocialAccount.credential as ACAccountCredential
+      return credential.oauthToken
     }
-    return ""
+
+    return nil
   }
 
   class func loadProfileInfo(accountStore: ACAccountStore, onComplete: (NSDictionary?) -> ()) {

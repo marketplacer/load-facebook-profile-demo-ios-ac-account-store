@@ -18,12 +18,14 @@ class ViewController: UIViewController {
   var socialAccount:ACAccount?
   @IBOutlet weak var statusLabel: UILabel!
   @IBOutlet weak var appIdTextField: UITextField!
+  @IBOutlet weak var accessTokenField: UITextField!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     statusLabel.text = ""
     appIdTextField.text = appId
+    accessTokenField.hidden = true
   }
 
   func getFacebookAccountInfo() {
@@ -44,10 +46,8 @@ class ViewController: UIViewController {
       accountStore in
 
       if let currentAccountStore = accountStore {
-        if let currentAccountName = TegLoginWithFacebook.accountName(currentAccountStore) {
-          self.statusLabel.text = "Logged in \(currentAccountName)"
-        }
         self.getFacbookMeInfo(currentAccountStore)
+        self.loadAuthLoken(currentAccountStore)
       } else {
         self.statusLabel.text = "Error"
       }
@@ -87,6 +87,15 @@ class ViewController: UIViewController {
     var facebookId = data["id"] as NSString
 
     statusLabel.text = "Logged with Facebook \n \(emailAddress) \n User id: \(facebookId)"
+  }
+
+  private func loadAuthLoken(accountStore: ACAccountStore) {
+    if let currentToken = TegLoginWithFacebook.accessToken(accountStore) {
+      accessTokenField.hidden = false
+      accessTokenField.text = "Access token: \(currentToken)"
+    } else {
+      accessTokenField.hidden = true
+    }
   }
 
   @IBAction func loginToFacebookTapped(sender: UIButton) {
