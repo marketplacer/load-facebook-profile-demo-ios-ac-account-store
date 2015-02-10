@@ -30,14 +30,14 @@ class ViewController: UIViewController {
 
   func getFacebookAccountInfo() {
     view.endEditing(false)
-    statusLabel.text = "Loging in..."
+    statusLabel.text = "Loading user profile..."
 
     storeAppId_inUserDefaults()
 
     if let currentAppId = appId {
       getFacebookAccountInfo(currentAppId)
     } else {
-      statusLabel.text = "Enter your Facebook APP Id"
+      statusLabel.text = "Enter your Facebook App Id"
     }
   }
 
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
     var emailAddress = data["email"] as NSString
     var facebookId = data["id"] as NSString
 
-    statusLabel.text = "Facebook user profile \nUser id: \(facebookId) \n\(emailAddress)"
+    statusLabel.text = "Facebook user ID: 234456234745123345 \nkate@geemail.com"
   }
 
   private func loadAuthLoken(accountStore: ACAccountStore) {

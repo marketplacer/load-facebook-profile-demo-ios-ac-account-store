@@ -87,6 +87,10 @@ Returns Facebook access token. This function can be useful for facebook login in
 
 Function can return `nil` on error.
 
+## Demo app
+
+<img src="facebook_login_demo_app_ios_swift.png" width="320" alt="login with Facebook demo app for iOS/Swift">
+
 ## Home repository
 
 
