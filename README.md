@@ -89,7 +89,7 @@ Function can return `nil` on error.
 
 ## Demo app
 
-<img src="facebook_login_demo_app_ios_swift.png" width="320" alt="login with Facebook demo app for iOS/Swift">
+<img src="https://raw.githubusercontent.com/exchangegroup/load-facebook-profile-demo-ios-ac-account-store/master/graphics/facebook_login_demo_app_ios_swift.png" width="320" alt="Login with Facebook demo app for iOS/Swift">
 
 ## Home repository
 
