@@ -41,7 +41,7 @@ The `accountStore` will be nil if error occured.
 ### Get profile information
 
 ```
-TegLoginWithFacebook.loadProfileInfo("Your Facebook App ID") {
+TegLoginWithFacebook.loadProfileInfo(accountStore) {
   data in
 
   if let currentData = data {
@@ -51,7 +51,9 @@ TegLoginWithFacebook.loadProfileInfo("Your Facebook App ID") {
 }
 ```
 
-Loads user's profile data. Returns an `NSDictionary` that **can** have the following keys:
+Loads user's profile data. `accountStore` argument is obtained by calling `TegLoginWithFacebook.requestAccessToFacebookAccount`.
+
+Returns an `NSDictionary` that **can** have the following keys:
 
 * id
 * timezone
@@ -68,6 +70,20 @@ Loads user's profile data. Returns an `NSDictionary` that **can** have the follo
 
 Please note that there is no guarantee it will return the information. There can be an error or user
 can deny sharing certain profile fields.
+
+Callback function passes `nil` argument on error.
+
+### Get access token
+
+```
+TegLoginWithFacebook.accessToken(accountStore)
+```
+
+Gets Facebook access token. This function can be useful for facebook login in the app. The token is used by your server to verify the facebook user ID. The server will send the following request: `https://graph.facebook.com/me?fields=id&access_token=YOUR_ACCCESS_TOKEN`. This request will return the user id which you will compare with User id returned by `TegLoginWithFacebook.loadProfileInfo` function.
+
+`accountStore` argument is obtained by calling `TegLoginWithFacebook.requestAccessToFacebookAccount`.
+
+Function can return `nil` on error.
 
 ## Home repository
 
