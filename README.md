@@ -4,6 +4,8 @@ This is a collection of functions for getting user's Facebook ID, email address 
 This information is loaded from the current Facebook account stored on the device.
 This code uses `ACAccountStore` which is built-in into iOS rather than the Facebook SDK.
 
+These functions can be used to login your users with Facebook in the app.
+
 ## Setup
 
 1. Copy `TegLoginWithFacebook.swift` file into your project.
@@ -79,7 +81,7 @@ Callback function passes `nil` argument on error.
 TegLoginWithFacebook.accessToken(accountStore)
 ```
 
-Gets Facebook access token. This function can be useful for facebook login in the app. The token is used by your server to verify the facebook user ID. The server will send the following request: `https://graph.facebook.com/me?fields=id&access_token=YOUR_ACCCESS_TOKEN`. This request will return the user id which you will compare with User id returned by `TegLoginWithFacebook.loadProfileInfo` function.
+Returns Facebook access token. This function can be useful for facebook login in the app. The token is used by your server to verify the facebook user ID. The server will send the following request: `https://graph.facebook.com/me?fields=id&access_token=YOUR_ACCCESS_TOKEN`. This request will return the user id which you will compare with User id returned by `TegLoginWithFacebook.loadProfileInfo` function.
 
 `accountStore` argument is obtained by calling `TegLoginWithFacebook.requestAccessToFacebookAccount`.
 

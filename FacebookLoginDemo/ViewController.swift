@@ -86,7 +86,7 @@ class ViewController: UIViewController {
     var emailAddress = data["email"] as NSString
     var facebookId = data["id"] as NSString
 
-    statusLabel.text = "Logged with Facebook \n \(emailAddress) \n User id: \(facebookId)"
+    statusLabel.text = "Facebook user profile \nUser id: \(facebookId) \n\(emailAddress)"
   }
 
   private func loadAuthLoken(accountStore: ACAccountStore) {
