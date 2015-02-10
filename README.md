@@ -1,4 +1,4 @@
-# Login with Facebook and getting user profile using ACAccountStore on iOS/Swift
+# Login with Facebook and load user profile using ACAccountStore on iOS/Swift
 
 Collection of functions for getting user's Facebook ID, email address and other profile information.
 This information is loaded from the current Facebook account stored on the device.
