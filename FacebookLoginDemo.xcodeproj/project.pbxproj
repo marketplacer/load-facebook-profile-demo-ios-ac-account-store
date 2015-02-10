@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BB006341A899DFE004381EA /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BB006331A899DFE004381EA /* Launch Screen.xib */; };
 		2BB39BC71A849569002866B0 /* TegLoginWithFacebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB39BC61A849569002866B0 /* TegLoginWithFacebook.swift */; };
 		2BC11C0C1A8862D500A208FA /* TegQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC11C0B1A8862D500A208FA /* TegQ.swift */; };
 		2BEA3D0E19982CAC003E70B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BEA3D0D19982CAC003E70B0 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2BB006331A899DFE004381EA /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		2BB39BC61A849569002866B0 /* TegLoginWithFacebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegLoginWithFacebook.swift; sourceTree = "<group>"; };
 		2BC11C0B1A8862D500A208FA /* TegQ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TegQ.swift; sourceTree = "<group>"; };
 		2BEA3D0819982CAC003E70B0 /* FacebookLoginDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookLoginDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 				2BEA3D1119982CAC003E70B0 /* Main.storyboard */,
 				2BEA3D1419982CAC003E70B0 /* Images.xcassets */,
 				2BEA3D0B19982CAC003E70B0 /* Supporting Files */,
+				2BB006331A899DFE004381EA /* Launch Screen.xib */,
 			);
 			path = FacebookLoginDemo;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				2BEA3D1319982CAC003E70B0 /* Main.storyboard in Resources */,
 				2BEA3D1519982CAC003E70B0 /* Images.xcassets in Resources */,
+				2BB006341A899DFE004381EA /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

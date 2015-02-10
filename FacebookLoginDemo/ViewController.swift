@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         self.getFacbookMeInfo(currentAccountStore)
         self.loadAuthLoken(currentAccountStore)
       } else {
-        self.statusLabel.text = "Error"
+        self.statusLabel.text = "Failed to load profile.\nPlease use Facebook app to login."
       }
     }
   }
