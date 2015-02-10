@@ -25,7 +25,7 @@ TegLoginWithFacebook.checkAccess("Your Facebook App ID") {
 
 Check if we can get current user account information. If Facebook user account exists it will display a dialog asking for permission to access user's Facebook profile information.
 
-<img src="ios_swift_facebook_login_demo_permissions_alert.png" width="278" alt="Facebook permissions dialog login demo on iOS">
+<img src="https://raw.githubusercontent.com/exchangegroup/load-facebook-profile-demo-ios-ac-account-store/master/graphics/ios_swift_facebook_login_demo_permissions_alert.png" width="278" alt="Facebook permissions dialog login demo on iOS">
 
 ### Request access to Facebook account
 
