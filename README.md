@@ -93,4 +93,4 @@ Function can return `nil` on error.
 
 ## Home repository
 
-https://github.com/exchangegroup/load-facebook-profile-demo-ios-ac-account-store/blob/master/README.md
+https://github.com/exchangegroup/load-facebook-profile-demo-ios-ac-account-store
