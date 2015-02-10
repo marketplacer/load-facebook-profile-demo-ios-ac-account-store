@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     if let currentAppId = appId {
       getFacebookAccountInfo(currentAppId)
     } else {
-      statusLabel.text = "Enter your Facebook APP Id"
+      statusLabel.text = "Enter your Facebook App Id"
     }
   }
 

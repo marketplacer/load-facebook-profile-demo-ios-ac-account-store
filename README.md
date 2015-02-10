@@ -13,17 +13,17 @@ These functions can be used to login your users with Facebook in the app.
 
 ## Usage
 
-### Check if we have access to user's Facebook profile
+### Check access to user's Facebook profile
 
 ```
-TegLoginWithFacebook.canLogin("Your Facebook App ID") {
-  weCanLogin in
+TegLoginWithFacebook.checkAccess("Your Facebook App ID") {
+  accessGranted in
 
-  // All good when weCanLogin == true
+  // All good when accessGranted == true
 }
 ```
 
-The functino is used to check if we can get current user account information. If user account exists it will display a dialog asking for permission to access user's Facebook profile information.
+Check if we can get current user account information. If Facebook user account exists it will display a dialog asking for permission to access user's Facebook profile information.
 
 <img src="ios_swift_facebook_login_demo_permissions_alert.png" width="278" alt="Facebook permissions dialog login demo on iOS">
 
@@ -38,7 +38,7 @@ TegLoginWithFacebook.requestAccessToFacebookAccount("Your Facebook App ID") {
 ```
 
 Get `ACAccountStore` object that will be used in other functions to get user's Facebook profile information.
-The `accountStore` will be nil if error occured.
+The `accountStore` will be nil if error occurred.
 
 ### Get profile information
 
@@ -55,7 +55,7 @@ TegLoginWithFacebook.loadProfileInfo(accountStore) {
 
 Loads user's profile data. `accountStore` argument is obtained by calling `TegLoginWithFacebook.requestAccessToFacebookAccount`.
 
-Returns an `NSDictionary` that **can** have the following keys:
+Returns an `NSDictionary` that **may** have the following keys:
 
 * id
 * timezone
@@ -81,7 +81,7 @@ Callback function passes `nil` argument on error.
 TegLoginWithFacebook.accessToken(accountStore)
 ```
 
-Returns Facebook access token. This function can be useful for facebook login in the app. The token is used by your server to verify the facebook user ID. The server will send the following request: `https://graph.facebook.com/me?fields=id&access_token=YOUR_ACCCESS_TOKEN`. This request will return the user id which you will compare with User id returned by `TegLoginWithFacebook.loadProfileInfo` function.
+Returns Facebook access token. This function can be useful for Facebook login in the app. The token is used by your server to verify the Facebook user ID by sending the following request: `https://graph.facebook.com/me?fields=id&access_token=YOUR_ACCCESS_TOKEN`. This request will return the user id which can be compared with User id returned by `TegLoginWithFacebook.loadProfileInfo` function.
 
 `accountStore` argument is obtained by calling `TegLoginWithFacebook.requestAccessToFacebookAccount`.
 
