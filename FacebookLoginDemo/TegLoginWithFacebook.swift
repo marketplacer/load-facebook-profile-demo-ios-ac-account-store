@@ -14,7 +14,7 @@ private let tegLoginWithFacebook_accountNameKey = "ACPropertyFullName"
 
 class TegLoginWithFacebook {
 
-  class func canLogin(appId: String, onComplete: (Bool)->()) {
+  class func haveAccess(appId: String, onComplete: (Bool)->()) {
     requestAccessToFacebookAccount(appId) { accountStore in
       onComplete(accountStore != nil)
     }

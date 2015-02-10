@@ -1,8 +1,8 @@
-# Getting user Facebook profile information using ACAccountStore on iOS/Swift
+# Login with Facebook and getting user profile using ACAccountStore on iOS/Swift
 
-This is a collection of functions for getting user's Facebook ID, email address and other profile information.
+Collection of functions for getting user's Facebook ID, email address and other profile information.
 This information is loaded from the current Facebook account stored on the device.
-This code uses `ACAccountStore` which is built-in into iOS rather than the Facebook SDK.
+The code uses `ACAccountStore` which is built-in into iOS rather than the Facebook SDK.
 
 These functions can be used to login your users with Facebook in the app.
 
@@ -13,7 +13,7 @@ These functions can be used to login your users with Facebook in the app.
 
 ## Usage
 
-### Check if we can login to Facebook
+### Check if we have access to user's Facebook profile
 
 ```
 TegLoginWithFacebook.canLogin("Your Facebook App ID") {
