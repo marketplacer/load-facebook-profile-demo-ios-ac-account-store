@@ -40,7 +40,7 @@
                                     <action selector="loginToFacebookTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PGf-fA-Hj0"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Facebook API key" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rNc-54-eF9">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Facebook App ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rNc-54-eF9">
                                 <rect key="frame" x="16" y="40" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -58,7 +58,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="apiKeyTextField" destination="rNc-54-eF9" id="bE3-Es-xtd"/>
+                        <outlet property="appIdTextField" destination="rNc-54-eF9" id="Mj8-X8-jA4"/>
                         <outlet property="statusLabel" destination="KER-4I-LGp" id="77r-eG-sRM"/>
                     </connections>
                 </viewController>

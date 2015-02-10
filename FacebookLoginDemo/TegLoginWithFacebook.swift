@@ -14,17 +14,17 @@ private let tegLoginWithFacebook_accountNameKey = "ACPropertyFullName"
 
 class TegLoginWithFacebook {
 
-  class func canLogin(apiKey: String, onComplete: (Bool)->()) {
-    requestAccessToFacebookAccount(apiKey) { accountStore in
+  class func canLogin(appId: String, onComplete: (Bool)->()) {
+    requestAccessToFacebookAccount(appId) { accountStore in
       onComplete(accountStore != nil)
     }
   }
 
-  class func requestAccessToFacebookAccount(apiKey: String, onComplete: (ACAccountStore?)->()) {
+  class func requestAccessToFacebookAccount(appId: String, onComplete: (ACAccountStore?)->()) {
     let accountsStore = ACAccountStore()
 
     let options = [
-      "ACFacebookAppIdKey" : apiKey,
+      "ACFacebookAppIdKey" : appId,
       "ACFacebookPermissionsKey" : ["email"],
       "ACFacebookAudienceKey" : ACFacebookAudienceOnlyMe]
     
@@ -45,7 +45,14 @@ class TegLoginWithFacebook {
     return nil
   }
 
-  class func loadFacebookMeInfo(accountStore: ACAccountStore, onComplete: (NSDictionary?) -> ()) {
+  class func accessToken(accountStore: ACAccountStore) -> String? {
+    if let currentSocialAccount = socialAccount(accountStore) {
+      let credential = currentSocialAccount.credential as ACAccountCredential
+    }
+    return ""
+  }
+
+  class func loadProfileInfo(accountStore: ACAccountStore, onComplete: (NSDictionary?) -> ()) {
     var meUrl = NSURL(string: "https://graph.facebook.com/me")
     
     var slRequest = SLRequest(forServiceType: SLServiceTypeFacebook,
@@ -53,6 +60,8 @@ class TegLoginWithFacebook {
       URL: meUrl, parameters: nil)
 
     slRequest.account = socialAccount(accountStore)
+
+    let myaccount = socialAccount(accountStore)
 
     slRequest.performRequestWithHandler {
       (data: NSData!, response: NSHTTPURLResponse!, error: NSError!) -> Void in

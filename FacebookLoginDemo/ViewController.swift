@@ -10,36 +10,37 @@ import UIKit
 import Accounts
 import Social
 
-let TegLoginDemo_facebookApiKey_userDefaultsKey = "facebook API key"
+let TegLoginDemo_facebookAppId_userDefaultsKey = "facebook App id"
 
 class ViewController: UIViewController {
 
   let accountsStore = ACAccountStore()
   var socialAccount:ACAccount?
   @IBOutlet weak var statusLabel: UILabel!
-  @IBOutlet weak var apiKeyTextField: UITextField!
+  @IBOutlet weak var appIdTextField: UITextField!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     statusLabel.text = ""
-    apiKeyTextField.text = apiId
+    appIdTextField.text = appId
   }
 
   func getFacebookAccountInfo() {
+    view.endEditing(false)
     statusLabel.text = "Loging in..."
 
-    storeApiId_inUserDefaults()
+    storeAppId_inUserDefaults()
 
-    if let currentApiId = apiId {
-      getFacebookAccountInfo(currentApiId)
+    if let currentAppId = appId {
+      getFacebookAccountInfo(currentAppId)
     } else {
-      statusLabel.text = "Enter API"
+      statusLabel.text = "Enter your Facebook APP Id"
     }
   }
 
-  func getFacebookAccountInfo(forApiId: String) {
-    TegLoginWithFacebook.requestAccessToFacebookAccount(forApiId) {
+  func getFacebookAccountInfo(forAppId: String) {
+    TegLoginWithFacebook.requestAccessToFacebookAccount(forAppId) {
       accountStore in
 
       if let currentAccountStore = accountStore {
@@ -54,28 +55,27 @@ class ViewController: UIViewController {
   }
 
 
-  private func storeApiId_inUserDefaults() {
+  private func storeAppId_inUserDefaults() {
     let userDefaults = NSUserDefaults.standardUserDefaults()
-    userDefaults.setValue(apiKeyTextField.text, forKey: TegLoginDemo_facebookApiKey_userDefaultsKey)
+    userDefaults.setValue(appIdTextField.text, forKey: TegLoginDemo_facebookAppId_userDefaultsKey)
     userDefaults.synchronize()
   }
 
-  private var apiId: String? {
+  private var appId: String? {
     let userDefaults = NSUserDefaults.standardUserDefaults()
 
-    if let currentApiId = userDefaults.valueForKey(
-      TegLoginDemo_facebookApiKey_userDefaultsKey) as? String {
+    if let currentAppId = userDefaults.valueForKey(
+      TegLoginDemo_facebookAppId_userDefaultsKey) as? String {
 
-      if currentApiId.isEmpty { return nil }
-      return currentApiId
+      if currentAppId.isEmpty { return nil }
+      return currentAppId
     }
 
     return nil
   }
 
   private func getFacbookMeInfo(accountStore: ACAccountStore) {
-
-    TegLoginWithFacebook.loadFacebookMeInfo(accountStore) { data in
+    TegLoginWithFacebook.loadProfileInfo(accountStore) { data in
       if let currentData = data {
         self.onFacebookMeLoaded(currentData)
       }
