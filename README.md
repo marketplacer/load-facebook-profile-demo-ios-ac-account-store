@@ -7,7 +7,7 @@ These functions can be used to login your users with Facebook in the app.
 
 ## Problem with this approach
 
-The code uses `ACAccountStore` which is built-in into iOS rather than the Facebook SDK. User needs to login to facebook in iOS settings in order for these functions to work. Even if user used Facebook app before their Facebook iOS account still remains empty. I would suggest using Facebook SDK instead of this code.
+The code uses `ACAccountStore` which is built-in into iOS rather than the Facebook SDK. User needs to login to facebook in iOS settings in order for these functions to work. Even if user used Facebook app before their Facebook iOS account still remains empty. Therefore I would suggest using Facebook SDK instead of this code.
 
 ## Setup
 
