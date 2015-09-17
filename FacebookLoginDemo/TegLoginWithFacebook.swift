@@ -29,7 +29,7 @@ class TegLoginWithFacebook {
       "ACFacebookAudienceKey" : ACFacebookAudienceOnlyMe]
     
     accountsStore.requestAccessToAccountsWithType(facebookAccountType(accountsStore),
-      options: options) { (granted: Bool, error: NSError!) -> Void in
+      options: options as [NSObject : AnyObject]) { (granted: Bool, error: NSError!) -> Void in
 
       TegQ.main {
         onComplete(granted ? accountsStore : nil)
@@ -58,37 +58,34 @@ class TegLoginWithFacebook {
   }
 
   class func loadProfileInfo(accountStore: ACAccountStore, onComplete: (NSDictionary?) -> ()) {
-    var meUrl = NSURL(string: "https://graph.facebook.com/me")
+    let meUrl = NSURL(string: "https://graph.facebook.com/me")
     
-    var slRequest = SLRequest(forServiceType: SLServiceTypeFacebook,
+    let slRequest = SLRequest(forServiceType: SLServiceTypeFacebook,
       requestMethod: SLRequestMethod.GET,
       URL: meUrl, parameters: nil)
 
     slRequest.account = socialAccount(accountStore)
 
-    let myaccount = socialAccount(accountStore)
-
     slRequest.performRequestWithHandler {
       (data: NSData!, response: NSHTTPURLResponse!, error: NSError!) -> Void in
 
       TegQ.main {
-        if error != nil
-                {
-                    onComplete(nil)
-                }
-                else
-                {
-                    do
-                    {
-                        let meData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
-                        
-                        onComplete(meData)
-                    }
-                    catch
-                    {
-                        onComplete(nil)
-                    }
-                }
+        if error != nil {
+          onComplete(nil)
+        }
+        else
+        {
+          do
+          {
+            let meData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            
+            onComplete(meData)
+          }
+          catch
+          {
+            onComplete(nil)
+          }
+        }
       }
     }
   }
