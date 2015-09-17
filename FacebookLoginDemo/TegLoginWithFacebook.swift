@@ -72,16 +72,23 @@ class TegLoginWithFacebook {
       (data: NSData!, response: NSHTTPURLResponse!, error: NSError!) -> Void in
 
       TegQ.main {
-        if error != nil { onComplete(nil) }
-
-        var serializationError: NSError?;
-
-        let meData = NSJSONSerialization.JSONObjectWithData(
-          data,
-          options: NSJSONReadingOptions.MutableContainers,
-          error: &serializationError) as? NSDictionary
-
-        onComplete(meData)
+        if error != nil
+                {
+                    onComplete(nil)
+                }
+                else
+                {
+                    do
+                    {
+                        let meData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                        
+                        onComplete(meData)
+                    }
+                    catch
+                    {
+                        onComplete(nil)
+                    }
+                }
       }
     }
   }
