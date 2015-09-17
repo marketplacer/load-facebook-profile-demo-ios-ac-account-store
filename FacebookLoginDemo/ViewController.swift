@@ -83,8 +83,8 @@ class ViewController: UIViewController {
   }
 
   private func onFacebookMeLoaded(data: NSDictionary) {
-    var emailAddress = data["email"] as NSString
-    var facebookId = data["id"] as NSString
+    guard let emailAddress = data["email"] as? NSString else { return }
+    guard let facebookId = data["id"] as? NSString else { return }
 
     statusLabel.text = "Facebook user profile \nUser id: \(facebookId) \n\(emailAddress)"
   }
