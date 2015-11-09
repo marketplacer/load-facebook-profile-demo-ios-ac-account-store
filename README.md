@@ -7,7 +7,7 @@ These functions can be used to login your users with Facebook in the app.
 
 ## Problem with this approach
 
-The code uses `ACAccountStore` which is built-in into iOS rather than the Facebook SDK. User needs to login to facebook in iOS settings in order for these functions to work. Even if user used Facebook app before their Facebook iOS account still remains empty. Therefore I would suggest using Facebook SDK instead of this code to make it easier for customers to login. Here is a repository that can help with that: https://github.com/exchangegroup/load-facebook-profile-ios-swift
+The code uses `ACAccountStore` which is built-in into iOS rather than the Facebook SDK. User needs to login to facebook in iOS settings in order for these functions to work. Even if user used Facebook app before their Facebook iOS account still remains empty. Therefore I would suggest using Facebook SDK instead of this code to make it easier for customers to login. Here is a repository that can help with that: https://github.com/marketplacer/load-facebook-profile-ios-swift
 
 ## Setup
 
@@ -28,7 +28,7 @@ TegLoginWithFacebook.checkAccess("Your Facebook App ID") {
 
 Check if we can get current user account information. If Facebook user account exists it will display a dialog asking for permission to access user's Facebook profile information.
 
-<img src="https://raw.githubusercontent.com/exchangegroup/load-facebook-profile-demo-ios-ac-account-store/master/graphics/ios_swift_facebook_login_demo_permissions_alert.png" width="278" alt="Facebook permissions dialog login demo on iOS">
+<img src="https://raw.githubusercontent.com/marketplacer/load-facebook-profile-demo-ios-ac-account-store/master/graphics/ios_swift_facebook_login_demo_permissions_alert.png" width="278" alt="Facebook permissions dialog login demo on iOS">
 
 ### Request access to Facebook account
 
@@ -92,8 +92,8 @@ Function can return `nil` on error.
 
 ## Demo app
 
-<img src="https://raw.githubusercontent.com/exchangegroup/load-facebook-profile-demo-ios-ac-account-store/master/graphics/facebook_login_demo_app_ios_swift.png" width="320" alt="Login with Facebook demo app for iOS/Swift">
+<img src="https://raw.githubusercontent.com/marketplacer/load-facebook-profile-demo-ios-ac-account-store/master/graphics/facebook_login_demo_app_ios_swift.png" width="320" alt="Login with Facebook demo app for iOS/Swift">
 
 ## Home repository
 
-https://github.com/exchangegroup/load-facebook-profile-demo-ios-ac-account-store
+https://github.com/marketplacer/load-facebook-profile-demo-ios-ac-account-store
